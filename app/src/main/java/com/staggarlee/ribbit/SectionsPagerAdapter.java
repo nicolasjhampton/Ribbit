@@ -9,6 +9,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+
 import java.util.Locale;
 
 /**
@@ -27,8 +28,18 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
         // getItem is called to instantiate the fragment for the given page.
-        // Return a PlaceholderFragment (defined as a static inner class below).
-        return MainActivity.PlaceholderFragment.newInstance(position + 1);
+        // Return a InboxFragment (defined as a static inner class below).
+
+        switch (position) {
+            case 0:
+                return new InboxFragment();
+
+            case 1:
+                return new FriendsFragment();
+
+                // return the new FriendsFragment() here
+        }
+        return null;
     }
 
     @Override

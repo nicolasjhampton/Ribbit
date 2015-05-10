@@ -20,4 +20,6 @@
     <string name="login_error_title">login Error</string>
     <string name="login_error_message">Please fill in all required fields</string>
     <string name="menu_logout_label">logout</string>
+    <string name="empty_inbox_label">No New Messages</string>
+    <string name="empty_friends_label">No Current Friends</string>
 </resources>

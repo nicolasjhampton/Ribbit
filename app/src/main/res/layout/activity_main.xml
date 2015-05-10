@@ -3,4 +3,16 @@
                                    xmlns:tools="http://schemas.android.com/tools"
                                    android:layout_width="match_parent"
                                    android:layout_height="match_parent"
-                                   tools:context=".MainActivity"></android.support.v4.view.ViewPager>
+                                   tools:context=".MainActivity">
+    <android.support.v4.view.PagerTabStrip
+        android:id="@+id/pager_title_strip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:background="#33b5e5"
+        android:paddingBottom="4dp"
+        android:paddingTop="4dp"
+        android:textColor="#fff" />
+
+
+</android.support.v4.view.ViewPager>
