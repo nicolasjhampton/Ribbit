@@ -91,6 +91,10 @@ public class MainActivity extends ActionBarActivity  {
                 ParseUser.logOut();
                 navigateToLogin();
                 break;
+            case R.id.action_edit_friends:
+                Intent intent = new Intent(this, EditFriendsActivity.class);
+                startActivity(intent);
+                break;
         }
         return super.onOptionsItemSelected(item);
     }

@@ -15,7 +15,7 @@ import android.widget.TextView;
 import com.parse.LogInCallback;
 import com.parse.ParseException;
 import com.parse.ParseUser;
-import com.parse.SignUpCallback;
+
 
 
 public class LoginActivity extends ActionBarActivity {
@@ -28,7 +28,7 @@ public class LoginActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        supportRequestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
+        requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
@@ -76,11 +76,11 @@ public class LoginActivity extends ActionBarActivity {
 
                 } else {
                     // create user here
-                    setSupportProgressBarIndeterminateVisibility(true);
+                    setProgressBarIndeterminateVisibility(true);
                     ParseUser.logInInBackground(userName, password, new LogInCallback() {
                         @Override
                         public void done(ParseUser parseUser, ParseException e) {
-                            setSupportProgressBarIndeterminateVisibility(false);
+                            setProgressBarIndeterminateVisibility(false);
                             if(e == null) {
                                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
