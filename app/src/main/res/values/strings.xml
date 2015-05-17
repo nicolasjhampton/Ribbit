@@ -3,10 +3,8 @@
 
     <string name="title_section1">Inbox</string>
     <string name="title_section2">Friends</string>
-
     <string name="hello_world">Hello world!</string>
-
-    <string name="action_settings">Settings</string>
+    <string name="action_send">Send</string>
     <string name="title_activity_login">Login</string>
     <string name="password_hint">Enter your password</string>
     <string name="username_hint">Enter your username</string>
@@ -25,4 +23,16 @@
     <string name="menu_edit_friends_label">Edit Friends</string>
     <string name="title_activity_edit_friends">Edit Friends</string>
     <string name="error_title">Oops</string>
+    <string name="menu_camera_label">Camera</string>
+    <string name="error_external_storage">There was a problem accessing your device\'s external storage</string>
+    <string name="general_error">Oops, there was an error</string>
+    <string name="video_file_size_warning">The selected video must be less than ten megabytes</string>
+    <string name="error_video_file_too_large">The file size is too large</string>
+    <string-array name="camera_choices">
+        <item>Take Picture</item>
+        <item>Take Video</item>
+        <item>Choose Picture</item>
+        <item>Choose Video</item>
+    </string-array>
+    <string name="title_activity_recipients">RecipientsActivity</string>
 </resources>

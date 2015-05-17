@@ -4,15 +4,20 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
 
     <application
-        android:name=".RibbitApplication"
+        android:name=".Constants.RibbitApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".MainActivity"
+            android:name=".Activities.MainActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
             <intent-filter>
@@ -22,28 +27,37 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".LoginActivity"
+            android:name=".Activities.LoginActivity"
             android:label="@string/title_activity_login"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName=".Activities.MainActivity"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".SignUpActivity"
+            android:name=".Activities.SignUpActivity"
             android:label="@string/title_activity_sign_up"
-            android:parentActivityName=".LoginActivity"
+            android:parentActivityName=".Activities.LoginActivity"
             android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.staggarlee.ribbit.LoginActivity" />
+                android:value=".Activities.LoginActivity" />
         </activity>
         <activity
-            android:name=".EditFriendsActivity"
+            android:name=".Activities.EditFriendsActivity"
             android:label="@string/title_activity_edit_friends"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName=".Activities.MainActivity"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Activities.MainActivity" />
+        </activity>
+        <activity
+            android:name=".Activities.RecipientsActivity"
+            android:label="@string/title_activity_recipients"
+            android:parentActivityName=".Activities.MainActivity"
             android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.staggarlee.ribbit.MainActivity" />
+                android:value=".Activities.MainActivity" />
         </activity>
     </application>
 

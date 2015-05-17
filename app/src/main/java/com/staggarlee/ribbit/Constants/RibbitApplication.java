@@ -1,4 +1,4 @@
-package com.staggarlee.ribbit;
+package com.staggarlee.ribbit.Constants;
 
 import android.app.Application;
 

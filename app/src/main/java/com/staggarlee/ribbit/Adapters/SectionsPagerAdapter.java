@@ -1,4 +1,4 @@
-package com.staggarlee.ribbit;
+package com.staggarlee.ribbit.Adapters;
 
 /**
  * Created by nicolas on 5/9/15.
@@ -8,6 +8,11 @@ import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+
+import com.staggarlee.ribbit.Fragments.FriendsFragment;
+import com.staggarlee.ribbit.Fragments.InboxFragment;
+import com.staggarlee.ribbit.R;
+
 import java.util.Locale;
 
 /**
@@ -36,8 +41,11 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
                 return new FriendsFragment();
 
                 // return the new FriendsFragment() here
+            default:
+                return new InboxFragment();
         }
-        return null;
+
+
     }
 
     @Override
