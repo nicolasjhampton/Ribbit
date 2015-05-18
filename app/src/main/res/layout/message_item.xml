@@ -22,9 +22,11 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/messageIcon"
         android:layout_alignTop="@+id/messageIcon"
+        android:layout_centerInParent="true"
         android:layout_toEndOf="@+id/messageIcon"
         android:layout_toRightOf="@+id/messageIcon"
         android:gravity="center"
+        android:text="This is text"
         android:textSize="24sp"/>
 
 </RelativeLayout>

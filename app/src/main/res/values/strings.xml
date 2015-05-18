@@ -35,4 +35,6 @@
         <item>Choose Video</item>
     </string-array>
     <string name="title_activity_recipients">RecipientsActivity</string>
+    <string name="title_activity_view_image">ViewImageActivity</string>
+    <string name="action_settings">Settings</string>
 </resources>

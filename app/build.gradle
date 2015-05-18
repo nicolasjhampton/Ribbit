@@ -24,5 +24,6 @@ dependencies {
     compile 'com.android.support:appcompat-v7:22.0.0'
     compile fileTree('src/main/libs')
     compile 'com.parse.bolts:bolts-android:1.+'
+    compile 'com.squareup.picasso:picasso:2.5.2'
 
 }
