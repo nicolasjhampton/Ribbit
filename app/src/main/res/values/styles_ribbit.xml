@@ -3,12 +3,8 @@
 <!-- Generated with http://android-holo-colors.com -->
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
 
-	<style name="Ribbit" parent="@style/_Ribbit"/>
-
-	<style name="_Ribbit" parent="Theme.AppCompat.Light">
-
+	<style name="Ribbit" parent="Theme.AppCompat.Light">
 		<item name="android:editTextStyle">@style/EditTextRibbit</item>
-
 	</style>
 
   <style name="EditTextRibbit" parent="android:Widget.EditText">
