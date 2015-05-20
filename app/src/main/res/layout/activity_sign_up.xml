@@ -5,11 +5,27 @@
                 android:layout_height="match_parent"
                 tools:context="com.staggarlee.ribbit.Activities.SignUpActivity">
 
+    <ImageView
+        android:id="@+id/backgroundImage"
+        style="@style/AuthBackgroundImage"/>
+
+
+    <TextView
+        android:id="@+id/title"
+        style="@style/AuthTitle"/>
+
+    <TextView
+        android:id="@+id/subtitle"
+        style="@style/AuthSubtitle"/>
+
+    <LinearLayout
+        android:id="@+id/fieldContainer"
+        style="@style/AuthFieldContainer">
+
    <EditText
        android:id="@+id/usernameField"
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
-       android:layout_alignParentTop="true"
        android:hint="@string/username_hint"
        />
 
@@ -17,7 +33,6 @@
         android:id="@+id/emailField"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/usernameField"
         android:hint="@string/email_hint"
         android:inputType="textEmailAddress"
         />
@@ -26,10 +41,11 @@
         android:id="@+id/passwordField"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/emailField"
         android:hint="@string/password_hint"
         android:inputType="textPassword"
         />
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/signUpButton"
