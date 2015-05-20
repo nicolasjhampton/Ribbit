@@ -2,6 +2,7 @@ package com.staggarlee.ribbit.Activities;
 
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -23,6 +24,7 @@ public class SignUpActivity extends ActionBarActivity {
     protected EditText mPassword;
     protected EditText mEmail;
     protected Button mSignUpButton;
+    protected Button mCancelButton;
 
 
     @Override
@@ -38,6 +40,14 @@ public class SignUpActivity extends ActionBarActivity {
         mPassword = (EditText) findViewById(R.id.passwordField);
         mEmail = (EditText) findViewById(R.id.emailField);
         mSignUpButton = (Button) findViewById(R.id.signUpButton);
+        mCancelButton = (Button) findViewById(R.id.cancelButton);
+
+        mCancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
         mSignUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
