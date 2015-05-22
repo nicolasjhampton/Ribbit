@@ -45,7 +45,9 @@ public class SignUpActivity extends ActionBarActivity {
         mCancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                finish();
+                // NavUtils.navigateUpFromSameTask(SignUpActivity.this);
+                Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
+                startActivity(intent);
             }
         });
 

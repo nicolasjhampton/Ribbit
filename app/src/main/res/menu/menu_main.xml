@@ -1,8 +1,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:app="http://schemas.android.com/apk/res-auto"
       xmlns:tools="http://schemas.android.com/tools"
-      android:icon="@drawable/ic_menu_overflow"
-      android:theme="@style/Theme.Ribbit.Overflow"
       tools:context=".MainActivity">
 
       <item android:id="@+id/action_camera"

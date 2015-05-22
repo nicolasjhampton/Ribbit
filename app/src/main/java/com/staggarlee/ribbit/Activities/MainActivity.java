@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -190,6 +191,8 @@ public class MainActivity extends ActionBarActivity  {
         actionBar.setLogo(R.drawable.ic_launcher);
         actionBar.setDisplayUseLogoEnabled(true);
         actionBar.setDisplayShowHomeEnabled(true);
+        actionBar.setBackgroundDrawable(ContextCompat.getDrawable(this, R.color.light_purple_background));
+
 
         // ***This is where setNavigationMode has been deprecated***
 

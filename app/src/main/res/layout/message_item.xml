@@ -5,57 +5,48 @@
               android:layout_height="match_parent"
               android:background="@color/light_purple_background">
 
-<RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/inbox_horizontal_margin"
-                android:layout_marginRight="@dimen/inbox_horizontal_margin"
-                android:layout_marginTop="@dimen/inbox_vertical_margin"
-                android:background="@android:color/white"
-                >
+    <RelativeLayout android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/inbox_horizontal_margin"
+                    android:layout_marginRight="@dimen/inbox_horizontal_margin"
+                    android:layout_marginTop="@dimen/inbox_vertical_margin"
+                    android:background="@android:color/white">
 
-    <ImageView
-        android:id="@+id/messageIcon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
-        android:gravity="center"
-        android:paddingBottom="@dimen/message_list_item_vertical_margin"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/inbox_horizontal_margin"
-        android:paddingTop="@dimen/message_list_item_vertical_margin"
-        android:src="@drawable/ic_picture"
+        <ImageView android:id="@+id/messageIcon"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_alignParentEnd="true"
+                   android:layout_alignParentRight="true"
+                   android:layout_centerVertical="true"
+                   android:gravity="center"
+                   android:paddingBottom="@dimen/message_list_item_vertical_margin"
+                   android:paddingLeft="@dimen/activity_horizontal_margin"
+                   android:paddingRight="@dimen/inbox_horizontal_margin"
+                   android:paddingTop="@dimen/message_list_item_vertical_margin"
+                   android:src="@drawable/ic_picture"/>
 
-        />
-    <TextView
-        android:id="@+id/senderLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_toLeftOf="@+id/messageIcon"
-        android:layout_toStartOf="@+id/messageIcon"
-        android:paddingLeft="@dimen/inbox_horizontal_margin"
-        android:paddingTop="@dimen/message_vertical_padding"
-        android:text="This is text"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textSize="16sp"
-        />
+        <TextView android:id="@+id/senderLabel"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_alignParentLeft="true"
+                  android:layout_toLeftOf="@+id/messageIcon"
+                  android:layout_toStartOf="@+id/messageIcon"
+                  android:paddingLeft="@dimen/inbox_horizontal_margin"
+                  android:paddingTop="@dimen/message_vertical_padding"
+                  android:text="This is text"
+                  android:textAppearance="?android:attr/textAppearanceMedium"
+                  android:textSize="16sp"/>
 
-    <TextView
-        android:id="@+id/timeLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/senderLabel"
-        android:paddingBottom="@dimen/message_vertical_padding"
-        android:paddingLeft="@dimen/inbox_horizontal_margin"
-        android:text="Small Text"
-        android:textColor="@color/light_gray"
+        <TextView android:id="@+id/timeLabel"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_below="@id/senderLabel"
+                  android:paddingBottom="@dimen/message_vertical_padding"
+                  android:paddingLeft="@dimen/inbox_horizontal_margin"
+                  android:text="Small Text"
+                  android:textColor="@color/light_gray"
+                  android:textSize="12sp"/>
 
-        android:textSize="12sp"
+    </RelativeLayout>
 
-                                            />
-
-</RelativeLayout>
 </LinearLayout>
