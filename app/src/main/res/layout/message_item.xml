@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/inbox_horizontal_margin"
+                android:layout_marginRight="@dimen/inbox_horizontal_margin"
+                android:paddingTop="@dimen/inbox_vertical_margin"
+                >
 
     <ImageView
         android:id="@+id/messageIcon"
@@ -9,6 +13,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
+        android:layout_marginLeft="@dimen/inbox_horizontal_margin"
+        android:background="@android:color/white"
         android:paddingBottom="@dimen/message_list_item_vertical_margin"
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
@@ -18,14 +24,17 @@
         />
     <TextView
         android:id="@+id/senderLabel"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/messageIcon"
         android:layout_alignTop="@+id/messageIcon"
         android:layout_centerInParent="true"
+        android:layout_marginRight="@dimen/inbox_horizontal_margin"
         android:layout_toEndOf="@+id/messageIcon"
         android:layout_toRightOf="@+id/messageIcon"
+        android:background="@android:color/white"
         android:gravity="center"
+        android:paddingTop="@dimen/inbox_vertical_margin"
         android:text="This is text"
         android:textSize="24sp"/>
 

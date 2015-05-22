@@ -65,4 +65,21 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
         }
         return null;
     }
+    /*
+     * Function for applying the icon to the tab. We don't have tabs,
+     * so I'm commenting this out until I can find a way to apply to
+     * the PagerTab.
+     *
+     *
+    public int getIcon(int position) {
+        switch (position) {
+            case 0:
+                return R.drawable.ic_tab_inbox;
+            case 1:
+                return R.drawable.ic_tab_friends;
+            default:
+                return R.drawable.ic_tab_inbox;
+        }
+    }
+    */
 }
