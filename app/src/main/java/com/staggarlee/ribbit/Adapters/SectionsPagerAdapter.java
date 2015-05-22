@@ -4,10 +4,17 @@ package com.staggarlee.ribbit.Adapters;
  * Created by nicolas on 5/9/15.
  */
 
+import android.annotation.TargetApi;
 import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.content.ContextCompat;
+import android.text.SpannableStringBuilder;
+import android.text.Spanned;
+import android.text.style.ImageSpan;
 
 import com.staggarlee.ribbit.Fragments.FriendsFragment;
 import com.staggarlee.ribbit.Fragments.InboxFragment;
@@ -22,6 +29,9 @@ import java.util.Locale;
 public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
     protected Context mContext;
+    protected Drawable mInboxImage;
+    protected Drawable mFriendsImage;
+
 
     public SectionsPagerAdapter(Context context, FragmentManager fm) {
         super(fm);
@@ -54,14 +64,32 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
         return 2;
     }
 
+
     @Override
     public CharSequence getPageTitle(int position) {
         Locale l = Locale.getDefault();
+
+        mInboxImage = ContextCompat.getDrawable(mContext, R.drawable.ic_tab_inbox);
+        mFriendsImage = ContextCompat.getDrawable(mContext, R.drawable.ic_tab_friends);
+
+        SpannableStringBuilder sb;
+        ImageSpan span;
+
         switch (position) {
             case 0:
-                return mContext.getString(R.string.title_section1).toUpperCase(l);
+                sb = new SpannableStringBuilder(" " + mContext.getString(R.string.title_section1).toUpperCase(l)); // space added before text for convenience
+
+                mInboxImage.setBounds(0, 0, mInboxImage.getIntrinsicWidth(), mInboxImage.getIntrinsicHeight());
+                span = new ImageSpan(mInboxImage, ImageSpan.ALIGN_BOTTOM);
+                sb.setSpan(span, 0, 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                return sb;
             case 1:
-                return mContext.getString(R.string.title_section2).toUpperCase(l);
+                sb = new SpannableStringBuilder(" " + mContext.getString(R.string.title_section2).toUpperCase(l)); // space added before text for convenience
+
+                mFriendsImage.setBounds(0, 0, mFriendsImage.getIntrinsicWidth(), mFriendsImage.getIntrinsicHeight());
+                span = new ImageSpan(mFriendsImage, ImageSpan.ALIGN_BOTTOM);
+                sb.setSpan(span, 0, 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                return sb;
         }
         return null;
     }

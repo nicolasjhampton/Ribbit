@@ -20,8 +20,12 @@
       <item name="android:gridViewStyle">@style/Theme.Ribbit.LightPurpleBackground</item>
       <item name="android:tabWidgetStyle">@style/Theme.Ribbit.Widget</item>
       <item name="android:actionOverflowButtonStyle">@style/Theme.Ribbit.Overflow</item>
+      <item name="actionOverflowButtonStyle">@style/ActionButtonOverflow</item>
 
+    </style>
 
+    <style name="ActionButtonOverflow" parent="@style/Widget.AppCompat.ActionButton.Overflow">
+      <item name="android:src">@drawable/ic_menu_overflow</item>
     </style>
 
     <style name="Theme.Ribbit.Overflow" parent="@android:style/Widget.ActionButton.Overflow">

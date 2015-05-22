@@ -1,6 +1,7 @@
 package com.staggarlee.ribbit.Adapters;
 
 import android.content.Context;
+import android.text.format.DateUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import com.parse.ParseObject;
 import com.staggarlee.ribbit.Constants.ParseConstants;
 import com.staggarlee.ribbit.R;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -40,6 +42,7 @@ public class MessageAdapter extends ArrayAdapter<ParseObject> {
             holder = new ViewHolder();
             holder.messageIcon = (ImageView) convertView.findViewById(R.id.messageIcon);
             holder.senderLabel = (TextView) convertView.findViewById(R.id.senderLabel);
+            holder.timeLabel = (TextView) convertView.findViewById(R.id.timeLabel);
             // (attaching the holder to the view)
             convertView.setTag(holder);
         } else {
@@ -48,19 +51,26 @@ public class MessageAdapter extends ArrayAdapter<ParseObject> {
 
         // Prepare the next view and store it in the ViewHolder
         ParseObject message = mMessages.get(position);
+        Date createdAt = message.getCreatedAt();
+        long now = new Date().getTime();
+        String convertedDate = DateUtils.getRelativeTimeSpanString(createdAt.getTime(),
+                now, DateUtils.SECOND_IN_MILLIS).toString();
+        holder.timeLabel.setText(convertedDate);
+
 
         switch (message.getString(ParseConstants.KEY_FILE_TYPE)) {
             case ParseConstants.TYPE_IMAGE:
-                holder.messageIcon.setImageResource(R.drawable.ic_action_picture);
+                holder.messageIcon.setImageResource(R.drawable.ic_picture);
                 break;
             case ParseConstants.TYPE_VIDEO:
-                holder.messageIcon.setImageResource(R.drawable.ic_action_play_over_video);
+                holder.messageIcon.setImageResource(R.drawable.ic_video);
                 break;
             default:
                 // do nothing, should never get here
         }
 
         holder.senderLabel.setText(message.getString(ParseConstants.KEY_SENDER_NAME));
+
 
 
         return convertView;
@@ -76,6 +86,7 @@ public class MessageAdapter extends ArrayAdapter<ParseObject> {
 
         ImageView messageIcon;
         TextView senderLabel;
+        TextView timeLabel;
 
 
     }

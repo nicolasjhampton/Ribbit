@@ -187,6 +187,9 @@ public class MainActivity extends ActionBarActivity  {
 
         // Set up the action bar.
         final ActionBar actionBar = getSupportActionBar();
+        actionBar.setLogo(R.drawable.ic_launcher);
+        actionBar.setDisplayUseLogoEnabled(true);
+        actionBar.setDisplayShowHomeEnabled(true);
 
         // ***This is where setNavigationMode has been deprecated***
 
