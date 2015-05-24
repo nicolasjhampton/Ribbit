@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.parse.ParseObject;
-import com.staggarlee.ribbit.Constants.ParseConstants;
+import com.staggarlee.ribbit.Constants.Constants;
 import com.staggarlee.ribbit.R;
 
 import java.util.Date;
@@ -58,18 +58,18 @@ public class MessageAdapter extends ArrayAdapter<ParseObject> {
         holder.timeLabel.setText(convertedDate);
 
 
-        switch (message.getString(ParseConstants.KEY_FILE_TYPE)) {
-            case ParseConstants.TYPE_IMAGE:
+        switch (message.getString(Constants.KEY_FILE_TYPE)) {
+            case Constants.TYPE_IMAGE:
                 holder.messageIcon.setImageResource(R.drawable.ic_picture);
                 break;
-            case ParseConstants.TYPE_VIDEO:
+            case Constants.TYPE_VIDEO:
                 holder.messageIcon.setImageResource(R.drawable.ic_video);
                 break;
             default:
                 // do nothing, should never get here
         }
 
-        holder.senderLabel.setText(message.getString(ParseConstants.KEY_SENDER_NAME));
+        holder.senderLabel.setText(message.getString(Constants.KEY_SENDER_NAME));
 
 
 

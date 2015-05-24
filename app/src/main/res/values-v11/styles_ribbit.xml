@@ -17,7 +17,7 @@
       <item name="android:editTextBackground">@drawable/ribbit_edit_text_holo_light</item>
       <item name="android:textColor">#000000</item>
       <item name="android:listViewStyle">@style/Theme.Ribbit.LightPurpleBackground</item>
-      <item name="android:gridViewStyle">@style/Theme.Ribbit.LightPurpleBackground</item>
+      <item name="android:gridViewStyle">@style/Theme.Ribbit.LightPurpleBackground.GridView</item>
       <item name="android:tabWidgetStyle">@style/Theme.Ribbit.Widget</item>
       <item name="android:actionOverflowButtonStyle">@style/Theme.Ribbit.Overflow</item>
       <item name="actionOverflowButtonStyle">@style/ActionButtonOverflow</item>
@@ -33,10 +33,14 @@
     </style>
 
     <style name="Theme.Ribbit.LightPurpleBackground">
-      <item name="android:background">@color/light_purple_background</item>
+      <item name="android:background">@drawable/bg_gradient_list</item>
     </style>
 
-    <style name="ActionBar.Solid.Ribbit" parent="@style/Widget.AppCompat.Light.ActionBar.Solid">
+  <style name="Theme.Ribbit.LightPurpleBackground.GridView">
+    <item name="android:padding">@dimen/user_grid_spacing</item>
+  </style>
+
+  <style name="ActionBar.Solid.Ribbit" parent="@style/Widget.AppCompat.Light.ActionBar.Solid">
       <item name="android:background">@drawable/ab_solid_ribbit</item>
       <item name="android:backgroundStacked">@drawable/ab_stacked_solid_ribbit</item>
       <item name="android:backgroundSplit">@drawable/ab_bottom_solid_ribbit</item>

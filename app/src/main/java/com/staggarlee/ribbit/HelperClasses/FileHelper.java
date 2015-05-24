@@ -13,7 +13,7 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.util.Log;
 
-import com.staggarlee.ribbit.Constants.ParseConstants;
+import com.staggarlee.ribbit.Constants.Constants;
 
 public class FileHelper {
 	
@@ -84,7 +84,7 @@ public class FileHelper {
 	public static String getFileName(Context context, Uri uri, String fileType) {
 		String fileName = "uploaded_file.";
 		
-		if (fileType.equals(ParseConstants.TYPE_IMAGE)) {
+		if (fileType.equals(Constants.TYPE_IMAGE)) {
 			fileName += "png";
 		}
 		else {

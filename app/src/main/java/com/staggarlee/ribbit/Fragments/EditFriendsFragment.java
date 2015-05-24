@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.ProgressBar;
 
 import com.parse.FindCallback;
 import com.parse.ParseException;
@@ -16,7 +15,7 @@ import com.parse.ParseQuery;
 import com.parse.ParseRelation;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
-import com.staggarlee.ribbit.Constants.ParseConstants;
+import com.staggarlee.ribbit.Constants.Constants;
 import com.staggarlee.ribbit.R;
 
 import java.util.List;
@@ -44,11 +43,11 @@ public class EditFriendsFragment extends android.support.v4.app.ListFragment {
         super.onResume();
 
         mCurrentUser = ParseUser.getCurrentUser();
-        mFriendRelation = mCurrentUser.getRelation(ParseConstants.KEY_FRIENDS_RELATION);
+        mFriendRelation = mCurrentUser.getRelation(Constants.KEY_FRIENDS_RELATION);
 
 
         ParseQuery<ParseUser> query = ParseUser.getQuery();
-        query.orderByAscending(ParseConstants.KEY_USERNAME);
+        query.orderByAscending(Constants.KEY_USERNAME);
         query.setLimit(1000);
 
         query.findInBackground(new FindCallback<ParseUser>() {

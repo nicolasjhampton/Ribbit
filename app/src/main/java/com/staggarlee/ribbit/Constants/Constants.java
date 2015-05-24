@@ -3,7 +3,7 @@ package com.staggarlee.ribbit.Constants;
 /**
  * Created by nicolas on 5/10/15.
  */
-public final class ParseConstants {
+public final class Constants {
 
     //class name
     public static final String CLASS_MESSAGES = "Messages";
@@ -21,4 +21,8 @@ public final class ParseConstants {
 
     public static final String TYPE_IMAGE = "image";
     public static final String TYPE_VIDEO = "video";
+
+    public static final String GRAVATAR_URL = "http://www.gravatar.com/avatar/";
+    public static final String SIZE_REQUEST = "?s=204";
+    public static final String DEFAULT_REQUEST = "&d=404";
 }

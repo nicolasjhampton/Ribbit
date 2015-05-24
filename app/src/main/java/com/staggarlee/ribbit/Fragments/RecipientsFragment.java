@@ -2,7 +2,6 @@ package com.staggarlee.ribbit.Fragments;
 
 
 import android.app.AlertDialog;
-import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -21,7 +20,7 @@ import com.parse.ParseRelation;
 import com.parse.ParseUser;
 
 import com.staggarlee.ribbit.Activities.RecipientsActivity;
-import com.staggarlee.ribbit.Constants.ParseConstants;
+import com.staggarlee.ribbit.Constants.Constants;
 import com.staggarlee.ribbit.HelperClasses.FileHelper;
 import com.staggarlee.ribbit.R;
 
@@ -50,7 +49,7 @@ public class RecipientsFragment extends android.support.v4.app.ListFragment {
         super.onCreate(savedInstanceState);
 
         mMediaUri = getActivity().getIntent().getData();
-        mFileType = getActivity().getIntent().getExtras().getString(ParseConstants.KEY_FILE_TYPE);
+        mFileType = getActivity().getIntent().getExtras().getString(Constants.KEY_FILE_TYPE);
     }
 
     @Override
@@ -58,9 +57,9 @@ public class RecipientsFragment extends android.support.v4.app.ListFragment {
         super.onResume();
         getListView().setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
         mCurrentUser = ParseUser.getCurrentUser();
-        mFriendRelation = mCurrentUser.getRelation(ParseConstants.KEY_FRIENDS_RELATION);
+        mFriendRelation = mCurrentUser.getRelation(Constants.KEY_FRIENDS_RELATION);
         ParseQuery<ParseUser> query = mFriendRelation.getQuery()
-                                      .orderByAscending(ParseConstants.KEY_USERNAME);
+                                      .orderByAscending(Constants.KEY_USERNAME);
         query.setLimit(1000);
         query.findInBackground(new FindCallback<ParseUser>() {
             @Override
@@ -133,23 +132,23 @@ public class RecipientsFragment extends android.support.v4.app.ListFragment {
     public ParseObject createMessage() {
 
 
-        ParseObject message = new ParseObject(ParseConstants.CLASS_MESSAGES);
-        message.put(ParseConstants.KEY_RECIPIENT_IDS, getRecipientIds());
-        message.put(ParseConstants.KEY_SENDER_ID, ParseUser.getCurrentUser().getObjectId());
-        message.put(ParseConstants.KEY_SENDER_NAME, ParseUser.getCurrentUser().getUsername());
-        message.put(ParseConstants.KEY_FILE_TYPE, mFileType);
+        ParseObject message = new ParseObject(Constants.CLASS_MESSAGES);
+        message.put(Constants.KEY_RECIPIENT_IDS, getRecipientIds());
+        message.put(Constants.KEY_SENDER_ID, ParseUser.getCurrentUser().getObjectId());
+        message.put(Constants.KEY_SENDER_NAME, ParseUser.getCurrentUser().getUsername());
+        message.put(Constants.KEY_FILE_TYPE, mFileType);
 
         byte[] fileBytes = FileHelper.getByteArrayFromFile(RecipientsActivity.mContext, mMediaUri);
         if(fileBytes == null) {
             return null;
         } else {
-            if(mFileType.equals(ParseConstants.TYPE_IMAGE)) {
+            if(mFileType.equals(Constants.TYPE_IMAGE)) {
                 fileBytes = FileHelper.reduceImageForUpload(fileBytes);
             }
             String fileName = FileHelper.getFileName(RecipientsActivity.mContext,
                                                      mMediaUri, mFileType);
             ParseFile file = new ParseFile(fileName, fileBytes);
-            message.put(ParseConstants.KEY_FILE, file);
+            message.put(Constants.KEY_FILE, file);
             return message;
         }
     }

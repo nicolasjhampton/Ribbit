@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@+id/friendContainer"
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white">
+
+
+        <ImageView
+            android:id="@+id/userImageView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:paddingLeft="@dimen/inbox_horizontal_margin"
+            android:paddingRight="@dimen/inbox_horizontal_margin"
+            android:paddingTop="@dimen/inbox_vertical_margin"
+            android:scaleType="fitXY"
+            tools:src="@drawable/avatar_empty"/>
+
+        <TextView
+            android:id="@+id/nameLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="44dp"
+            android:layout_alignEnd="@id/userImageView"
+            android:layout_alignLeft="@id/userImageView"
+            android:layout_alignRight="@id/userImageView"
+            android:layout_alignStart="@id/userImageView"
+            android:layout_below="@id/userImageView"
+            android:gravity="center"
+            android:maxLines="2"
+            tools:text="Alexander Robinson"/>
+
+</RelativeLayout>

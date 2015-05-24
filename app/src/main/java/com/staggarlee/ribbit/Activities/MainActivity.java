@@ -16,17 +16,11 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
 
-import com.parse.FindCallback;
-import com.parse.ParseException;
-import com.parse.ParseObject;
-import com.parse.ParseQuery;
 import com.parse.ParseUser;
-import com.staggarlee.ribbit.Constants.ParseConstants;
-import com.staggarlee.ribbit.Fragments.RecipientsFragment;
+import com.staggarlee.ribbit.Constants.Constants;
 import com.staggarlee.ribbit.R;
 import com.staggarlee.ribbit.Adapters.SectionsPagerAdapter;
 
@@ -36,7 +30,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
 import java.util.TimeZone;
 
 // ***The TabListener has been deprecated, will look for update later***
@@ -191,7 +184,7 @@ public class MainActivity extends ActionBarActivity  {
         actionBar.setLogo(R.drawable.ic_launcher);
         actionBar.setDisplayUseLogoEnabled(true);
         actionBar.setDisplayShowHomeEnabled(true);
-        actionBar.setBackgroundDrawable(ContextCompat.getDrawable(this, R.color.light_purple_background));
+        actionBar.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.bg_gradient));
 
 
         // ***This is where setNavigationMode has been deprecated***
@@ -305,11 +298,11 @@ public class MainActivity extends ActionBarActivity  {
             recipientsIntent.setData(mMediaUri);
             String fileType;
             if(requestCode == TAKE_PHOTO_REQUEST || requestCode == CHOOSE_PHOTO_REQUEST) {
-                fileType = ParseConstants.TYPE_IMAGE;
+                fileType = Constants.TYPE_IMAGE;
             } else {
-                fileType = ParseConstants.TYPE_VIDEO;
+                fileType = Constants.TYPE_VIDEO;
             }
-            recipientsIntent.putExtra(ParseConstants.KEY_FILE_TYPE, fileType);
+            recipientsIntent.putExtra(Constants.KEY_FILE_TYPE, fileType);
             startActivity(recipientsIntent);
 
 

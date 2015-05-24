@@ -1,21 +1,24 @@
 package com.staggarlee.ribbit.Fragments;
 
 
-import android.app.AlertDialog;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
+import android.widget.GridView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseQuery;
 import com.parse.ParseRelation;
 import com.parse.ParseUser;
-import com.staggarlee.ribbit.Constants.ParseConstants;
+import com.staggarlee.ribbit.Constants.Constants;
 import com.staggarlee.ribbit.R;
+import com.staggarlee.ribbit.Adapters.UserAdapter;
 
 import java.util.List;
 
@@ -28,7 +31,7 @@ import java.util.List;
  * This is referred to as "DummySectionFragment" in the
  * lesson.
  */
-public class FriendsFragment extends android.support.v4.app.ListFragment {
+public class FriendsFragment extends Fragment {
 
     public static final String TAG = FriendsFragment.class.getSimpleName();
 
@@ -36,11 +39,20 @@ public class FriendsFragment extends android.support.v4.app.ListFragment {
     protected ParseUser mCurrentUser;
     protected ParseRelation<ParseUser> mFriendRelation;
     protected List<ParseUser> mFriends;
+    protected GridView mGridview;
+    protected TextView mEmpty;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_friends, container, false);
+        View rootView = inflater.inflate(R.layout.user_grid, container, false);
+
+        mGridview = (GridView) rootView.findViewById(R.id.friendsGrid);
+
+        mEmpty = (TextView) rootView.findViewById(android.R.id.empty);
+
+        mGridview.setEmptyView(mEmpty);
+
         return rootView;
     }
 
@@ -49,11 +61,12 @@ public class FriendsFragment extends android.support.v4.app.ListFragment {
         super.onResume();
 
         mCurrentUser = ParseUser.getCurrentUser();
-        mFriendRelation = mCurrentUser.getRelation(ParseConstants.KEY_FRIENDS_RELATION);
+        mFriendRelation = mCurrentUser.getRelation(Constants.KEY_FRIENDS_RELATION);
+
 
 
         ParseQuery<ParseUser> query = mFriendRelation.getQuery();
-        query.orderByAscending(ParseConstants.KEY_USERNAME);
+        query.orderByAscending(Constants.KEY_USERNAME);
         query.findInBackground(new FindCallback<ParseUser>() {
             @Override
             public void done(List<ParseUser> friends, ParseException e) {
@@ -68,18 +81,16 @@ public class FriendsFragment extends android.support.v4.app.ListFragment {
                         i++;
                     }
 
-                    ArrayAdapter<String> adapter = new ArrayAdapter<>(getListView().getContext(),
-                            android.R.layout.simple_list_item_1,
-                            usernames);
-                    setListAdapter(adapter);
+                    if(mGridview.getAdapter() == null) {
+                        UserAdapter adapter = new UserAdapter(getActivity(),
+                                mFriends);
+                        mGridview.setAdapter(adapter);
+                    } else {
+                        ((UserAdapter) mGridview.getAdapter()).refill(mFriends);
+                    }
                 } else {
                     Log.e(TAG, e.getMessage());
-                    AlertDialog.Builder builder = new AlertDialog.Builder(getListView().getContext());
-                    builder.setMessage(e.getMessage())
-                            .setTitle(R.string.error_title)
-                            .setPositiveButton(android.R.string.ok, null);
-                    AlertDialog dialog = builder.create();
-                    dialog.show();
+                    Toast.makeText(getActivity(),e.getMessage(), Toast.LENGTH_SHORT).show();
                 }
             }
         });
