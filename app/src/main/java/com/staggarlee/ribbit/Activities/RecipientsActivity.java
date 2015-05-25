@@ -2,12 +2,17 @@ package com.staggarlee.ribbit.Activities;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.NavUtils;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.SpinnerAdapter;
 import android.widget.Toast;
 
 import com.parse.ParseException;
@@ -33,6 +38,7 @@ public class RecipientsActivity extends ActionBarActivity {
         setContentView(R.layout.activity_recipients);
         mContext = this;
         list = new RecipientsFragment();
+
     }
 
     @Override

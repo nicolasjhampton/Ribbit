@@ -187,6 +187,8 @@ public class MainActivity extends ActionBarActivity  {
         actionBar.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.bg_gradient));
 
 
+
+
         // ***This is where setNavigationMode has been deprecated***
 
 
