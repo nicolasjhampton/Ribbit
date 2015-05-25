@@ -6,17 +6,16 @@
                 android:layout_height="wrap_content"
                 android:background="@android:color/white">
 
-
         <ImageView
             android:id="@+id/userImageView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:adjustViewBounds="true"
-            android:paddingLeft="@dimen/inbox_horizontal_margin"
-            android:paddingRight="@dimen/inbox_horizontal_margin"
-            android:paddingTop="@dimen/inbox_vertical_margin"
-            android:scaleType="fitXY"
+            style="@style/GridImage"
             tools:src="@drawable/avatar_empty"/>
+
+        <ImageView
+            android:id="@+id/checkImageView"
+            style="@style/GridImage"
+            android:src="@drawable/avatar_selected"
+            android:visibility="visible"/>
 
         <TextView
             android:id="@+id/nameLabel"

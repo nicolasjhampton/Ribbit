@@ -78,12 +78,14 @@ public class InboxFragment extends android.support.v4.app.ListFragment {
                     }
 
                     mMessages = messages;
+                    /*
                     String[] usernames = new String[mMessages.size()];
                     int i = 0;
                     for (ParseObject msg : mMessages) {
                         usernames[i] = msg.getString(Constants.KEY_SENDER_NAME).toString();
                         i++;
                     }
+                    */
                     if(getListView().getAdapter() == null){
                         MessageAdapter adapter = new MessageAdapter(getListView().getContext(), mMessages);
                         setListAdapter(adapter);

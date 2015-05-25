@@ -74,13 +74,15 @@ public class FriendsFragment extends Fragment {
                 if (e == null) {
 
                     mFriends = friends;
+
+                    /*
                     String[] usernames = new String[mFriends.size()];
                     int i = 0;
                     for (ParseUser user : mFriends) {
                         usernames[i] = user.getUsername().toString();
                         i++;
                     }
-
+                    */
                     if(mGridview.getAdapter() == null) {
                         UserAdapter adapter = new UserAdapter(getActivity(),
                                 mFriends);

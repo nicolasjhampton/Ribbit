@@ -24,6 +24,16 @@
 
     </style>
 
+    <style name="GridImage">
+      <item name="android:layout_width">match_parent</item>
+      <item name="android:layout_height">wrap_content</item>
+      <item name="android:adjustViewBounds">true</item>
+      <item name="android:paddingLeft">@dimen/inbox_horizontal_margin</item>
+      <item name="android:paddingRight">@dimen/inbox_horizontal_margin</item>
+      <item name="android:paddingTop">@dimen/inbox_vertical_margin</item>
+      <item name="android:scaleType">fitXY</item>
+    </style>
+
     <style name="ActionButtonOverflow" parent="@style/Widget.AppCompat.ActionButton.Overflow">
       <item name="android:src">@drawable/ic_menu_overflow</item>
     </style>
