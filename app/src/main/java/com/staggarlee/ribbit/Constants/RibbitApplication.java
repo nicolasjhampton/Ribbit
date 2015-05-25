@@ -5,11 +5,18 @@ import android.app.Application;
 import com.parse.Parse;
 import com.parse.ParseInstallation;
 import com.parse.ParseObject;
+import com.parse.ParseUser;
 
 /**
  * Created by nicolas on 5/8/15.
  */
 public class RibbitApplication extends Application {
+
+    public static void updateParseInstallation(ParseUser user) {
+        ParseInstallation installation = ParseInstallation.getCurrentInstallation();
+        installation.put(Constants.KEY_USER_ID, user.getObjectId());
+        installation.saveInBackground();
+    }
 
     @Override
     public void onCreate() {

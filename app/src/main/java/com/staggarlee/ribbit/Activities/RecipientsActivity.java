@@ -11,8 +11,11 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.parse.ParseException;
+import com.parse.ParseInstallation;
 import com.parse.ParseObject;
+import com.parse.ParseQuery;
 import com.parse.SaveCallback;
+import com.staggarlee.ribbit.Constants.Constants;
 import com.staggarlee.ribbit.Fragments.RecipientsFragment;
 import com.staggarlee.ribbit.R;
 
@@ -88,9 +91,10 @@ public class RecipientsActivity extends ActionBarActivity {
         message.saveInBackground(new SaveCallback() {
             @Override
             public void done(ParseException e) {
-                if(e == null) {
+                if (e == null) {
                     Toast.makeText(RecipientsActivity.this,
-                                   "Send successful!", Toast.LENGTH_LONG).show();
+                            "Send successful!", Toast.LENGTH_LONG).show();
+                    sendPushNotifications();
                 } else {
                     AlertDialog.Builder builder = new AlertDialog.Builder(RecipientsActivity.this);
                     builder.setTitle("Oops")
@@ -101,8 +105,10 @@ public class RecipientsActivity extends ActionBarActivity {
                 }
             }
         });
+    }
 
-
-
+    protected void sendPushNotifications() {
+        ParseQuery<ParseInstallation> query = ParseInstallation.getQuery();
+        query.whereContainedIn(Constants.KEY_USER_ID, list.getRecipientIds());
     }
 }

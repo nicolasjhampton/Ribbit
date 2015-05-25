@@ -15,6 +15,7 @@ import android.widget.EditText;
 import com.parse.ParseException;
 import com.parse.ParseUser;
 import com.parse.SignUpCallback;
+import com.staggarlee.ribbit.Constants.RibbitApplication;
 import com.staggarlee.ribbit.R;
 
 
@@ -91,6 +92,7 @@ public class SignUpActivity extends ActionBarActivity {
                         public void done(ParseException e) {
                             setSupportProgressBarIndeterminateVisibility(false);
                             if(e == null) {
+                                RibbitApplication.updateParseInstallation(ParseUser.getCurrentUser());
                                 Intent intent = new Intent(SignUpActivity.this, MainActivity.class);
                                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
